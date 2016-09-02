@@ -8,7 +8,7 @@ public:
 	FileExe(): OpenFile_Number(0) {
 
 	}
-	FILE* fopen(string Path, string mode) {
+	FILE* fopen(char* Path, char* mode) {
 		FILE *temp = new FILE();
 		temp = fopen(Path, mode);
 		temp != NULL ? def = true : def = false;
