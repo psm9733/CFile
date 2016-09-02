@@ -21,12 +21,3 @@ public:
 		cout << "OpenFile Number is " << OpenFile_Number << endl;
 	}
 };
-
-
-int main() {
-
-	FileExe *Filehead = new FileExe();
-	FILE *target = (Filehead->fopen("target.txt", "rt"));
-	FILE *copy = (Filehead->fopen("copy.txt", "wt"));
-	Filehead->ShowInfo();
-}
