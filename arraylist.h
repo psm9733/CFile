@@ -1,5 +1,5 @@
-#ifndef __ARRAYLIST_H__
-#define __ARRAYLIST_H__
+#pragma once //헤더파일 한번만 불리게함
+
 #define LIST_LEN 100
 #include <iostream>
 using namespace std;
@@ -20,7 +20,7 @@ public:
 	bool LNEXT();
 	LDATA LDELETE(LDATA data);
 	LDATA LSEARCH(LDATA data);
-	void LSHOW();
+	void LSHOWINFO();
 };
 
 template<typename LDATA>
@@ -32,6 +32,8 @@ void arraylist<LDATA>::LINIT() {
 	NumofData = 0;
 	CurPosition = -1;
 }
+
+
 template<typename LDATA>
 void arraylist<LDATA>::INSERT() {
 	int data;
@@ -44,6 +46,8 @@ void arraylist<LDATA>::INSERT() {
 		arraylist<LDATA>::LINSERT(data);
 	}
 }
+
+
 template<typename LDATA>
 bool arraylist<LDATA>::LINSERT(LDATA data) {
 
@@ -85,7 +89,7 @@ LDATA arraylist<LDATA>::LSEARCH(LDATA data) {
 }
 
 template<typename LDATA>
-void arraylist<LDATA>::LSHOW() {
+void arraylist<LDATA>::LSHOWINFO() {
 	if (F_LNEXT()) {
 		cout << "data = " << Target_Data << endl;
 		while (LNEXT()) {
@@ -94,6 +98,3 @@ void arraylist<LDATA>::LSHOW() {
 	}
 	return;
 }
-
-#endif
-
