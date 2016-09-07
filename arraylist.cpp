@@ -1,4 +1,3 @@
-#include <iostream>
 #include "arraylist.h"
 
 template<typename LDATA>
@@ -9,11 +8,12 @@ void arraylist<LDATA>::LINIT() {
 
 template<typename LDATA>
 bool arraylist<LDATA>::LINSERT(LDATA data) {
-	if (CurPosition >= LIST_LEN - 1) {
-		return false;
-	}
-	Arr[NumofData] = data;
-	NumofData++;
+
+		if (CurPosition >= LIST_LEN - 1) {
+			return false;
+		}
+		Arr[NumofData] = data;
+		NumofData++;
 	return true;
 }
 
@@ -56,4 +56,5 @@ void arraylist<LDATA>::LSHOW() {
 	}
 	return;
 }
+
 
