@@ -1,7 +1,7 @@
 #ifndef __ARRAYLIST_H__
 #define __ARRAYLIST_H__
 #define LIST_LEN 100
-
+#include <iostream>
 using namespace std;
 template <typename LDATA>
 class arraylist {
@@ -14,7 +14,8 @@ private:
 public:
 	arraylist();
 	void LINIT();
-	bool LINSERT();
+	void INSERT();
+	bool LINSERT(LDATA data);
 	bool F_LNEXT();
 	bool LNEXT();
 	LDATA LDELETE(LDATA data);
@@ -31,10 +32,8 @@ void arraylist<LDATA>::LINIT() {
 	NumofData = 0;
 	CurPosition = -1;
 }
-
 template<typename LDATA>
-bool arraylist<LDATA>::LINSERT() {
-
+void arraylist<LDATA>::INSERT() {
 	int data;
 	int ins_number;
 	cout << "몇개의 data를 저장 하시겠습니까? [ ]\b\b";
@@ -42,12 +41,17 @@ bool arraylist<LDATA>::LINSERT() {
 	for (int i = 0; i < ins_number; i++) {
 		cout << "저장하실 데이터를 입력해주세요 [ ]\b\b";
 		cin >> data;
-		if (CurPosition >= LIST_LEN - 1) {
-			return false;
-		}
-		Arr[NumofData] = data;
-		NumofData++;
+		arraylist<LDATA>::LINSERT(data);
 	}
+}
+template<typename LDATA>
+bool arraylist<LDATA>::LINSERT(LDATA data) {
+
+	if (CurPosition >= LIST_LEN - 1) {
+		return false;
+	}
+	Arr[NumofData] = data;
+	NumofData++;
 	return true;
 }
 
