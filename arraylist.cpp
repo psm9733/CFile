@@ -14,6 +14,7 @@ bool arraylist<LDATA>::LINSERT(LDATA data) {
 	}
 	Arr[NumofData] = data;
 	NumofData++;
+	return true;
 }
 
 template<typename LDATA>
