@@ -2,7 +2,12 @@
 
 #define LIST_LEN 100
 #include <iostream>
+typedef int index;
 using namespace std;
+
+template <typename T>
+typedef T type;
+
 template <typename LDATA>
 class arraylist {
 private:
@@ -19,7 +24,7 @@ public:
 	bool F_LNEXT();
 	bool LNEXT();
 	LDATA LDELETE(LDATA data);
-	LDATA LSEARCH(LDATA data);
+	int LSEARCH(LDATA data);
 	void LSHOWINFO();
 };
 
@@ -80,12 +85,25 @@ bool arraylist<LDATA>::LNEXT() {
 
 template<typename LDATA>
 LDATA arraylist<LDATA>::LDELETE(LDATA data) {
-
+	int i = LSEARCH(data);
+	if (i == -1) {
+		return NULL;
+	}
+	for (i; i < NumofData - 1; i++) {
+		Arr[i] = Arr[i + 1];
+	}
+	NumofData--;
+	return data;
 }
 
 template<typename LDATA>
-LDATA arraylist<LDATA>::LSEARCH(LDATA data) {
-
+index arraylist<LDATA>::LSEARCH(LDATA data) {
+	for (int i = 0; i < NumofData; i++) {
+		if (Arr[i] == data) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 template<typename LDATA>
